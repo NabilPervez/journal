@@ -1,0 +1,142 @@
+[
+    {
+        "id": 1,
+        "arabic": "ٱلرَّحْمَـٰنُ",
+        "transliteration": "Ar-Rahman",
+        "meaning": "The Entirely Merciful",
+        "desc": "The One who wills goodness and mercy for all His creatures."
+    },
+    {
+        "id": 2,
+        "arabic": "ٱلرَّحِيمُ",
+        "transliteration": "Ar-Raheem",
+        "meaning": "The Especially Merciful",
+        "desc": "The One who acts with extreme kindness."
+    },
+    {
+        "id": 3,
+        "arabic": "ٱلْمَلِكُ",
+        "transliteration": "Al-Malik",
+        "meaning": "The King",
+        "desc": "The Sovereign Lord, The One with the complete Dominion."
+    },
+    {
+        "id": 4,
+        "arabic": "ٱلْقُدُّوسُ",
+        "transliteration": "Al-Quddus",
+        "meaning": "The Holy",
+        "desc": "The One who is pure from any imperfection."
+    },
+    {
+        "id": 5,
+        "arabic": "ٱلسَّلَـٰمُ",
+        "transliteration": "As-Salam",
+        "meaning": "The Source of Peace",
+        "desc": "The One who is free from every imperfection and creates peace."
+    },
+    {
+        "id": 6,
+        "arabic": "ٱلْمُؤْمِنُ",
+        "transliteration": "Al-Mu'min",
+        "meaning": "The Guardian of Faith",
+        "desc": "The One who witnessed for Himself that no one is God but Him. The One who gives security."
+    },
+    {
+        "id": 7,
+        "arabic": "ٱلْمُهَيْمِنُ",
+        "transliteration": "Al-Muhaymin",
+        "meaning": "The Protector",
+        "desc": "The One who witnesses the saying and deeds of His creatures and protects them."
+    },
+    {
+        "id": 8,
+        "arabic": "ٱلْعَزِيزُ",
+        "transliteration": "Al-Aziz",
+        "meaning": "The Mighty",
+        "desc": "The Strong, The Defeater who is not defeated."
+    },
+    {
+        "id": 9,
+        "arabic": "ٱلْجَبَّارُ",
+        "transliteration": "Al-Jabbar",
+        "meaning": "The Compeller",
+        "desc": "The One that nothing happens in His Dominion except that which He willed."
+    },
+    {
+        "id": 10,
+        "arabic": "ٱلْمُتَكَبِّرُ",
+        "transliteration": "Al-Mutakabbir",
+        "meaning": "The Majestic",
+        "desc": "The One who is clear from the attributes of the creatures and from resembling them."
+    },
+    {
+        "id": 11,
+        "arabic": "ٱلْخَـٰلِقُ",
+        "transliteration": "Al-Khaliq",
+        "meaning": "The Creator",
+        "desc": "The One who brings everything from non-existence to existence."
+    },
+    {
+        "id": 12,
+        "arabic": "ٱلْبَارِئُ",
+        "transliteration": "Al-Bari'",
+        "meaning": "The Evolver",
+        "desc": "The Maker, The Creator who has the power to turn the entities."
+    },
+    {
+        "id": 13,
+        "arabic": "ٱلْمُصَوِّرُ",
+        "transliteration": "Al-Musawwir",
+        "meaning": "The Fashioner",
+        "desc": "The One who forms His creatures in different pictures."
+    },
+    {
+        "id": 14,
+        "arabic": "ٱلْغَفَّارُ",
+        "transliteration": "Al-Ghaffar",
+        "meaning": "The Great Forgiver",
+        "desc": "The Forgiver, The One who forgives the sins of His slaves time and time again."
+    },
+    {
+        "id": 15,
+        "arabic": "ٱلْقَهَّارُ",
+        "transliteration": "Al-Qahhar",
+        "meaning": "The Subduer",
+        "desc": "The Dominant, The One who has the perfect Power and is not unable over anything."
+    },
+    {
+        "id": 16,
+        "arabic": "ٱلْوَهَّابُ",
+        "transliteration": "Al-Wahhab",
+        "meaning": "The Bestower",
+        "desc": "The One who is Generous in giving plenty without any return."
+    },
+    {
+        "id": 17,
+        "arabic": "ٱلرَّزَّاقُ",
+        "transliteration": "Ar-Razzaq",
+        "meaning": "The Provider",
+        "desc": "The Sustainer, The Provider."
+    },
+    {
+        "id": 18,
+        "arabic": "ٱلْفَتَّاحُ",
+        "transliteration": "Al-Fattah",
+        "meaning": "The Opener",
+        "desc": "The Opener, The Reliever, The Judge, The One who opens for His slaves the closed worldly and religious matters."
+    },
+    {
+        "id": 19,
+        "arabic": "ٱلْعَلِيمُ",
+        "transliteration": "Al-'Alim",
+        "meaning": "The All-Knowing",
+        "desc": "The Knowledgeable; The One nothing is absent from His knowledge."
+    },
+    {
+        "id": 20,
+        "arabic": "ٱلْقَابِضُ",
+        "transliteration": "Al-Qabid",
+        "meaning": "The Withholder",
+        "desc": "The Constrictor, The Withholder."
+    }
+]

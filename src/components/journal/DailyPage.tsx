@@ -12,6 +12,7 @@ import { useSound } from '../../hooks/useSound';
 import { useDebounce } from '../../hooks/useDebounce';
 import { journalService } from '../../services/journalService';
 import type { JournalEntry } from '../../db/schema';
+import { NameCard } from '../names/NameCard';
 
 const promptsData = {
     morning: [
@@ -180,6 +181,11 @@ export function DailyPage() {
                 >
                     →
                 </button>
+            </div>
+
+            {/* Name of Allah */}
+            <div className="mb-8 px-2">
+                <NameCard />
             </div>
 
             {/* Prompt */}
