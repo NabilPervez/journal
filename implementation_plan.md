@@ -189,13 +189,13 @@ git push origin main
     - Date navigation controls
     - Fetch data from trackerService
 
-- [ ] **4.3 Quran Study (SOAP Method)**
-  - [ ] Create `components/quran/AyahPicker.tsx` (Section 4.4):
+- [x] **4.3 Quran Study (SOAP Method)**
+  - [x] Create `components/quran/AyahPicker.tsx` (Section 4.4):
     - Dropdown 1: Select Surah (1-114)
     - Dropdown 2: Select Ayah (dependent on Surah selection)
     - Display selected verse in Arabic + English
     - Load from `quran.json` (lazy loaded)
-  - [ ] Create `components/quran/SoapInput.tsx` (Section 4.4):
+  - [x] Create `components/quran/SoapInput.tsx` (Section 4.4):
     - 4 collapsible sections:
       - **S**cripture: Display selected verse
       - **O**bservation: Text area for notes
@@ -203,20 +203,20 @@ git push origin main
       - **P**rayer: Text area for dua/prayer
     - Auto-expand on focus, collapse on blur
     - Save to database as separate entry type (extend schema if needed)
-  - [ ] Create `components/quran/QuranPage.tsx`:
+  - [x] Create `components/quran/QuranPage.tsx`:
     - Compose: `AyahPicker`, `SoapInput`
     - Search functionality for verses
 
-- [ ] **4.4 Gratitude Feature**
-  - [ ] Create `components/gratitude/GratitudeCard.tsx`:
+- [x] **4.4 Gratitude Feature**
+  - [x] Create `components/gratitude/GratitudeCard.tsx`:
     - Input for blessing description
     - Dropdown for connecting to Name of Allah (Al-Razzaq, Al-Wahhab, etc.)
     - Date stamp
-  - [ ] Create `components/gratitude/GratitudeList.tsx`:
+  - [x] Create `components/gratitude/GratitudeList.tsx`:
     - Display all gratitude entries
     - Filter by Name of Allah
     - Beautiful card-based layout
-  - [ ] Add gratitude service methods to database layer
+  - [x] Add gratitude service methods to database layer
 
 **Git Checkpoint:**
 ```bash
