@@ -165,24 +165,24 @@ git push origin main
 ### PHASE 4: Tracker & Extended Features
 **Goal:** Build the Ibadah tracker, Quran study, and supporting features
 
-- [ ] **4.1 Ibadah Tracker Components**
-  - [ ] Create `components/ibadah/PrayerRow.tsx` (Section 4.3):
+- [x] **4.1 Ibadah Tracker Components**
+  - [x] Create `components/ibadah/PrayerRow.tsx` (Section 4.3):
     - Prayer name display (Fajr, Dhuhr, Asr, Maghrib, Isha)
     - 3-state toggle: Empty circle → Gold check (on time) → Orange dash (late) → Red X (missed)
     - Visual feedback on state change
     - Sound effect on toggle
-  - [ ] Create `components/ibadah/ExtraPrayerToggle.tsx`:
+  - [x] Create `components/ibadah/ExtraPrayerToggle.tsx`:
     - Checkboxes for: Qiyam, Duha
     - Input for Quran pages read
     - Fasting type selector
-  - [ ] Create `components/ibadah/SevenDayGrid.tsx` (Section 4.3):
+  - [x] Create `components/ibadah/SevenDayGrid.tsx` (Section 4.3):
     - Heatmap-style grid for 7 days
     - Color coding: gold (on time), orange (late), red (missed), gray (no data)
     - Calculate and display "Spiritual Health" percentage
     - Animation on data update
 
-- [ ] **4.2 Tracker Page Assembly**
-  - [ ] Create `components/ibadah/TrackerPage.tsx`:
+- [x] **4.2 Tracker Page Assembly**
+  - [x] Create `components/ibadah/TrackerPage.tsx`:
     - Daily view: All 5 prayers + extras for current day
     - Week view: `SevenDayGrid` component
     - Toggle between daily/weekly views
