@@ -1,97 +1,84 @@
-import { saveAs } from 'file-saver';
 import { db } from '../db/db';
-import { z } from 'zod';
-
-// Zod Schemas matching our DB interfaces
-const JournalEntrySchema = z.object({
-    dateString: z.string(),
-    hijriDate: z.string(),
-    contentRaw: z.string(),
-    contentHtml: z.string(),
-    promptId: z.string().optional(),
-    tags: z.array(z.string()),
-    mood: z.enum(['peace', 'struggle', 'neutral', 'high-imaan']),
-    wordCount: z.number(),
-    isSealed: z.boolean(),
-    lastModified: z.number(),
-    syncedToBackup: z.boolean(),
-});
-
-const IbadahLogSchema = z.object({
-    dateString: z.string(),
-    fajr: z.union([z.literal(0), z.literal(1), z.literal(2), z.null()]),
-    dhuhr: z.union([z.literal(0), z.literal(1), z.literal(2), z.null()]),
-    asr: z.union([z.literal(0), z.literal(1), z.literal(2), z.null()]),
-    maghrib: z.union([z.literal(0), z.literal(1), z.literal(2), z.null()]),
-    isha: z.union([z.literal(0), z.literal(1), z.literal(2), z.null()]),
-    qiyam: z.boolean(),
-    duha: z.boolean(),
-    quranPagesRead: z.number(),
-    fastingType: z.enum(['none', 'ramadan', 'sunnah', 'makeup']),
-});
-
-export const BackupSchema = z.object({
-    version: z.literal(1),
-    exportDate: z.string(),
-    entries: z.array(JournalEntrySchema),
-    logs: z.array(IbadahLogSchema),
-});
-
-export type BackupData = z.infer<typeof BackupSchema>;
 
 export const backupService = {
-    async exportData() {
-        const entries = await db.entries.toArray();
-        const logs = await db.ibadah_log.toArray();
-
-        // Minimal valid backup object
-        const data = {
-            version: 1,
-            exportDate: new Date().toISOString(),
-            entries,
-            logs,
-        };
-
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-        const filename = `deen_journal_backup_${new Date().toISOString().split('T')[0]}.json`;
-        saveAs(blob, filename);
-    },
-
-    async validateBackup(file: File): Promise<BackupData> {
-        const text = await file.text();
-        let json;
+    async createBackup() {
         try {
-            json = JSON.parse(text);
+            const data: Record<string, any[]> = {};
+
+            // Iterate over all tables dynamically
+            await Promise.all(
+                db.tables.map(async (table) => {
+                    data[table.name] = await table.toArray();
+                })
+            );
+
+            const backup = {
+                version: 1,
+                timestamp: Date.now(),
+                data
+            };
+
+            // Create Blob
+            const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            // Trigger download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `deen-journal-backup-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            return true;
         } catch (e) {
-            throw new Error('Invalid JSON file');
+            console.error("Backup failed:", e);
+            throw e;
         }
-        return BackupSchema.parse(json);
     },
 
-    async restoreData(data: BackupData, strategy: 'merge' | 'overwrite') {
-        if (strategy === 'overwrite') {
-            await db.transaction('rw', db.entries, db.ibadah_log, async () => {
-                await db.entries.clear();
-                await db.ibadah_log.clear();
-                await db.entries.bulkPut(data.entries);
-                await db.ibadah_log.bulkPut(data.logs);
-            });
-        } else {
-            // Smart Merge: Adds missing entries, keeps local version if conflict exists (ignores incoming).
-            await db.transaction('rw', db.entries, db.ibadah_log, async () => {
-                for (const entry of data.entries) {
-                    const existing = await db.entries.get(entry.dateString);
-                    if (!existing) {
-                        await db.entries.add(entry);
+    async restoreBackup(file: File): Promise<void> {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+
+            reader.onload = async (e) => {
+                try {
+                    const content = e.target?.result as string;
+                    const backup = JSON.parse(content);
+
+                    if (!backup.data || typeof backup.data !== 'object') {
+                        throw new Error("Invalid backup file format");
                     }
+
+                    await db.transaction('rw', db.tables, async () => {
+                        // Clear existing data first
+                        await Promise.all(db.tables.map(table => table.clear()));
+
+                        // Restore data table by table
+                        for (const tableName of Object.keys(backup.data)) {
+                            const table = db.table(tableName);
+                            if (table) {
+                                await table.bulkAdd(backup.data[tableName]);
+                            }
+                        }
+                    });
+
+                    resolve();
+                } catch (err) {
+                    console.error("Restore failed:", err);
+                    reject(err);
                 }
-                for (const log of data.logs) {
-                    const existing = await db.ibadah_log.get(log.dateString);
-                    if (!existing) {
-                        await db.ibadah_log.add(log);
-                    }
-                }
-            });
-        }
+            };
+
+            reader.onerror = () => reject(new Error("File read error"));
+            reader.readAsText(file);
+        });
+    },
+
+    async clearAllData() {
+        await db.transaction('rw', db.tables, async () => {
+            await Promise.all(db.tables.map(table => table.clear()));
+        });
     }
 };
