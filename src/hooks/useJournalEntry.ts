@@ -43,5 +43,5 @@ export function useJournalEntry(dateString: string) {
         }
     }, [dateString]);
 
-    return { entry, isLoading, isSaving, error, save };
+    return { entry, isLoading, setEntry, isSaving, error, save };
 }

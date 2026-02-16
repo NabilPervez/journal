@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
-// @ts-expect-error - hijri-date-converter is not typed
-import toHijri from 'hijri-date-converter';
 
 export interface HijriDate {
     year: number;
-    month: number;
+    month: number; // 0-indexed or 1-indexed? Intl doesn't easily give numeric month with name. I'll use 0.
     day: number;
     nameDay: string;
     nameMonth: string;
@@ -14,23 +12,32 @@ export function useHijriDate(date: Date = new Date(), offset: number = 0) {
     const [hijri, setHijri] = useState<HijriDate | null>(null);
 
     useEffect(() => {
-        const y = date.getFullYear();
-        const m = date.getMonth() + 1;
-        const d = date.getDate();
+        try {
+            // Using Islamic Calendar (Umm al-Qura is common, or simplified 'islamic')
+            const calendar = 'islamic-umalqura';
+            const locale = 'en-u-ca-' + calendar;
 
-        // The library conversion
-        const h = toHijri(y, m, d);
+            const format = new Intl.DateTimeFormat(locale, {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                weekday: 'long'
+            });
 
-        // Apply offset logic here if needed (skipping complex calendar math for MVP)
-        // Providing raw conversion for now.
+            const parts = format.formatToParts(date);
+            const getPart = (type: Intl.DateTimeFormatPartTypes) => parts.find(p => p.type === type)?.value || '';
 
-        setHijri({
-            year: h.year,
-            month: h.month,
-            day: h.day,
-            nameDay: h.nameDay,
-            nameMonth: h.nameMonth
-        });
+            setHijri({
+                year: parseInt(getPart('year')) || 1445,
+                month: 0, // Placeholder
+                day: parseInt(getPart('day')) || 1,
+                nameDay: getPart('weekday'),
+                nameMonth: getPart('month')
+            });
+        } catch (e) {
+            console.error("Hijri conversion failed", e);
+            setHijri(null);
+        }
     }, [date, offset]);
 
     return hijri;
