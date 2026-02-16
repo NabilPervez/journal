@@ -29,3 +29,27 @@ export interface UserSettings {
     key: string;              // PK
     value: any;
 }
+
+export interface QuranLog {
+    id?: number;              // Auto increment ID (Dexie manages this)
+    dateString: string;       // Index: "YYYY-MM-DD"
+    surahNumber: number;
+    ayahNumber: number;
+    verseText: string;        // Snapshot of the verse text
+    reflectionContent: {
+        observation: string;
+        application: string;
+        prayer: string;
+    };
+    tags: string[];
+    createdAt: number;
+}
+
+// Phase 4.4 Gratitude
+export interface GratitudeEntry {
+    id?: number;
+    dateString: string;
+    content: string;
+    category?: string; // e.g. Name of Allah
+    createdAt: number;
+}
