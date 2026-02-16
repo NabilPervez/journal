@@ -9,15 +9,8 @@ export const trackerService = {
         if (!entry) {
             return {
                 dateString,
-                fajr: null,
-                dhuhr: null,
-                asr: null,
-                maghrib: null,
-                isha: null,
-                qiyam: false,
-                duha: false,
-                quranPagesRead: 0,
-                fastingType: 'none',
+                fajr: null, dhuhr: null, asr: null, maghrib: null, isha: null,
+                qiyam: false, duha: false, quranPagesRead: 0, fastingType: 'none',
             };
         }
         return entry;
@@ -57,39 +50,36 @@ export const trackerService = {
 
     async logQuranPages(dateString: string, pages: number) {
         const existing = await db.ibadah_log.get(dateString);
-        const updates = { quranPagesRead: pages };
 
         if (existing) {
-            await db.ibadah_log.update(dateString, updates);
+            await db.ibadah_log.update(dateString, { quranPagesRead: pages });
         } else {
             await db.ibadah_log.put({
                 dateString,
                 fajr: null, dhuhr: null, asr: null, maghrib: null, isha: null,
-                qiyam: false, duha: false, quranPagesRead: 0, fastingType: 'none',
-                ...updates
+                qiyam: false, duha: false,
+                quranPagesRead: pages,
+                fastingType: 'none',
             });
         }
     },
 
     async logFasting(dateString: string, type: 'none' | 'ramadan' | 'sunnah' | 'makeup') {
         const existing = await db.ibadah_log.get(dateString);
-        const updates = { fastingType: type };
 
         if (existing) {
-            await db.ibadah_log.update(dateString, updates);
+            await db.ibadah_log.update(dateString, { fastingType: type });
         } else {
             await db.ibadah_log.put({
                 dateString,
                 fajr: null, dhuhr: null, asr: null, maghrib: null, isha: null,
-                qiyam: false, duha: false, quranPagesRead: 0, fastingType: 'none',
-                ...updates
+                qiyam: false, duha: false, quranPagesRead: 0,
+                fastingType: type,
             });
         }
     },
 
     async getWeekData(startDate: string, endDate: string) {
-        // Ensure startDate < endDate logic if needed, but dexie 'between' handles range if correctly ordered?
-        // Actually dexie expects [lower, upper].
         return await db.ibadah_log.where('dateString').between(startDate, endDate, true, true).toArray();
     },
 
@@ -105,8 +95,8 @@ export const trackerService = {
                 const status = log[p];
                 if (status !== null && status !== undefined) {
                     totalPossible += 2;
-                    if (status === 2) score += 2;      // On time
-                    else if (status === 1) score += 1; // Late
+                    if (status === 2) score += 2;
+                    else if (status === 1) score += 1;
                 }
             });
         });

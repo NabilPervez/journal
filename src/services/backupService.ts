@@ -1,7 +1,6 @@
 import { saveAs } from 'file-saver';
 import { db } from '../db/db';
 import { z } from 'zod';
-import type { JournalEntry, IbadahLog } from '../db/schema';
 
 // Zod Schemas matching our DB interfaces
 const JournalEntrySchema = z.object({
