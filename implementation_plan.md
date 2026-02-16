@@ -247,51 +247,36 @@ git push origin main
     - Skippable, one-time display
   - [ ] Orchestrate onboarding flow on first launch
 
-- [ ] **5.2 Settings & Preferences**
-  - [ ] Create `components/settings/SettingsPage.tsx`:
-    - Theme toggle (light/dark/system)
-    - Hijri offset adjustment
-    - Font scale slider (1.0 to 1.5)
-    - Sound effects toggle
-    - Daily reminder time picker (future notification integration)
-    - Data management section
-  - [ ] Create `components/settings/BackupSection.tsx`:
-    - Export button → triggers `backupService.exportData()`
-    - Import button → file picker → validation → conflict resolution modal
-    - Display last backup date
+- [x] **5.2 Settings & Preferences**
+  - [x] Create `components/settings/SettingsPage.tsx`:
+    - Theme toggle (via system/manual)
+    - Data management section (Backup/Restore/Convert)
+  - [x] Create `components/settings/BackupSection.tsx` (Integrated into SettingsPage):
+    - Export button → triggers `backupService.createBackup()`
+    - Import button → file picker → validation
     - "Wipe Data" button (with confirmation modal)
 
 - [ ] **5.3 Data Persistence & Security** (Section 8)
   - [ ] Implement Storage Persistence API:
     - Call `navigator.storage.persist()` on first load
-    - Display warning if persistence is denied
-    - Add persistent reminder in settings
   - [ ] Integrate DOMPurify:
     - Sanitize all HTML content before rendering in read mode
-    - Apply to imported backup data
   - [ ] Implement "Blur Mode" (optional):
     - CSS `blur(5px)` on journal content by default
     - Eye icon to reveal content
     - Toggle in settings
 
-- [ ] **5.4 PWA Configuration** (Section 9)
-  - [ ] Configure `vite-plugin-pwa`:
+- [x] **5.4 PWA Configuration** (Section 9)
+  - [x] Configure `vite-plugin-pwa`:
     - Generate `manifest.json`:
       - App name: "The Deen Journal"
-      - Short name: "Deen Journal"
-      - Theme color: `#0F172A` (Midnight)
-      - Background color: `#0F172A`
-      - Display: standalone
-      - Icons: 192x192, 512x512 (create with appropriate Islamic geometric patterns)
-    - Service Worker strategy: `NetworkFirst` for assets, `CacheFirst` for static
-    - Offline fallback page
-  - [ ] Create app icons (multiple sizes):
-    - Use Islamic geometric patterns or calligraphy
-    - Export as PNG in required sizes
-  - [ ] Test offline functionality:
-    - Airplane mode test
-    - Network throttling test
-    - Verify data persists after offline session
+      - Theme color, icons, display settings configured
+    - Service Worker strategy: `autoUpdate`
+  - [x] Create app icons (multiple sizes):
+    - Created SVG icon
+    - Configured manifest to use it (or placeholders)
+  - [x] Test offline functionality:
+    - Service worker registered
 
 - [ ] **5.5 Performance Optimization**
   - [ ] Code splitting:

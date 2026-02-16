@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# The Deen Journal v2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A focused, distraction-free Islamic journaling app designed to integrate spiritual reflection into daily life. Privacy-focused, offline-first, and beautiful.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Daily Journal
+- Distraction-free writing experience with "Ink Canvas".
+- Daily prompts for Morning, Evening, Friday, and Ramadan.
+- "Sealing" mechanism to commit entries.
+- Mood tracking and tagging.
+- Native Hijri date support.
 
-## React Compiler
+### 2. Ibadah Tracker
+- Track obligatory prayers (Fajr, Dhuhr, Asr, Maghrib, Isha).
+- Log Sunnah prayers (Qiyam, Duha).
+- Track Quran pages read and fasting status.
+- Weekly heatmap and "Spiritual Health" score.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 3. Quran Study (S.O.A.P. Method)
+- Search Quran verses (Ayah).
+- Structure reflections using S.O.A.P. (Scripture, Observation, Application, Prayer).
+- View past reflections in a beautiful card list.
 
-## Expanding the ESLint configuration
+### 4. Gratitude Log
+- Log daily blessings.
+- Connect blessings to Names of Allah (e.g., Al-Razzaq).
+- Visual gratitude jar/grid.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 5. Daily Inspirations
+- Rotating "Name of Allah" card with reflection prompts.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 6. Privacy & Settings
+- **Local-First**: All data stored in browser (IndexedDB via Dexie.js).
+- **Encrypted**: (Planned feature).
+- **Backup**: Export/Import your data as JSON.
+- **PWA**: Installable on mobile and desktop. Works offline.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
+- **Framework**: React 18 + Vite
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + Framer Motion (Animations)
+- **Database**: Dexie.js (IndexedDB wrapper)
+- **Icons**: Lucide React
+- **PWA**: Vite PWA Plugin
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Setup
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/NabilPervez/journal.git
+   cd journal
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Run local server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## Installation (PWA)
+- **Mobile**: Open in Safari (iOS) or Chrome (Android) -> "Add to Home Screen".
+- **Desktop**: Click the install icon in Chrome address bar.
+
+## Contributing
+This project is personal but open to suggestions.
+
+## License
+MIT

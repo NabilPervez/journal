@@ -5,7 +5,7 @@ import namesData from '../../data/names.json';
 import { gratitudeService } from '../../services/gratitudeService';
 import { Button } from '../ui/Button';
 import TextareaAutosize from 'react-textarea-autosize';
-import { Sparkles, Save, X } from 'lucide-react';
+import { Sparkles, Save } from 'lucide-react';
 
 export function NameCard() {
     const [isReflecting, setIsReflecting] = useState(false);
