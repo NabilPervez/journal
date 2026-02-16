@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-midnight: #0F172A;
+    --color-starlight: #F8FAFC;
+    --color-gold: #D4AF37;
+    --color-crimson: #9F1239;
+    --color-parchment: #F5F5DC;
+  }
+
+  body {
+    @apply bg-midnight text-starlight font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-starlight;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-midnight;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-600;
+}
+
+/* Lined paper effect - to be used in InkCanvas */
+.lined-paper {
+  background-image: linear-gradient(transparent calc(2rem - 1px), #e5e7eb calc(2rem - 1px));
+  background-size: 100% 2rem;
+  line-height: 2rem;
+}
