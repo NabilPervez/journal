@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Deen Journal - Settings</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=Cinzel:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --midnight-900: #0F172A;
+            --midnight-800: #1E293B;
+            --starlight-50: #F8FAFC;
+            --starlight-200: #E2E8F0;
+            --gold-accent: #D4AF37;
+            --gold-dim: #927622;
+            --crimson-ink: #9F1239;
+            --parchment-bg: #F5F5DC;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--midnight-900);
+            color: var(--starlight-50);
+        }
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+        }
+        .gold-border {
+            border: 1px solid var(--gold-accent);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--midnight-900);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--midnight-800);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-dim);
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: var(--gold-accent);
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: var(--gold-accent);
+        }
+        .nav-item.active {
+            border-right: 4px solid var(--gold-accent);
+            background: linear-gradient(to left, rgba(212, 175, 55, 0.1), transparent);
+            color: var(--gold-accent);
+        }
+    </style>
+</head>
+<body class="h-screen overflow-hidden flex selection:bg-[#D4AF37] selection:text-[#0F172A]">
+<main class="flex-1 overflow-y-auto p-8 lg:p-12 relative">
+<div class="max-w-4xl mx-auto pb-20">
+<header class="mb-12 border-b border-slate-800 pb-6">
+<div class="flex items-center justify-between">
+<div>
+<h1 class="text-4xl text-[var(--starlight-50)] mb-2">Settings &amp; Backup</h1>
+<p class="text-[var(--starlight-200)] text-opacity-60 font-light">Manage your sanctuary preferences and data sovereignty.</p>
+</div>
+<div class="text-right hidden sm:block">
+<div class="text-2xl arabic-text text-[var(--gold-accent)]">الإعدادات</div>
+</div>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="space-y-8">
+<section class="bg-[var(--midnight-800)] p-6 rounded-lg border border-slate-700 shadow-lg">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-[var(--gold-accent)]">palette</span>
+<h2 class="text-xl font-semibold">Appearance</h2>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-sm text-slate-400 mb-3">Theme Preference</label>
+<div class="grid grid-cols-2 gap-4">
+<button class="relative p-4 rounded-lg border-2 border-[var(--gold-accent)] bg-[var(--midnight-900)] flex flex-col items-center gap-2 group transition-all">
+<div class="absolute top-2 right-2 text-[var(--gold-accent)]">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-sm">dark_mode</span>
+</div>
+<span class="font-medium text-sm">Moonlight</span>
+<span class="text-xs text-slate-500">Midnight Blue</span>
+</button>
+<button class="relative p-4 rounded-lg border border-slate-700 bg-[#F5F5DC] flex flex-col items-center gap-2 group hover:border-slate-500 transition-all opacity-80 hover:opacity-100">
+<div class="w-8 h-8 rounded-full bg-[#E8E8C0] text-slate-800 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-sm">light_mode</span>
+</div>
+<span class="font-medium text-sm text-slate-900">Parchment</span>
+<span class="text-xs text-slate-600">Paper Texture</span>
+</button>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-3">
+<label class="block text-sm text-slate-400">Font Scale</label>
+<span class="text-xs text-[var(--gold-accent)]">1.2x</span>
+</div>
+<input class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-[var(--gold-accent)]" max="1.5" min="1" step="0.1" type="range" value="1.2"/>
+<div class="flex justify-between mt-2 text-xs text-slate-500 font-serif">
+<span>Aa</span>
+<span>Aa</span>
+<span>Aa</span>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-[var(--midnight-800)] p-6 rounded-lg border border-slate-700 shadow-lg">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-[var(--gold-accent)]">tune</span>
+<h2 class="text-xl font-semibold">Adjustments</h2>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-medium">Hijri Date Offset</h3>
+<p class="text-xs text-slate-400 mt-1">Adjust based on local moon sighting.</p>
+</div>
+<div class="flex items-center bg-[var(--midnight-900)] rounded-lg border border-slate-700 p-1">
+<button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 rounded transition">-</button>
+<span class="w-12 text-center text-[var(--gold-accent)] font-medium">+0</span>
+<button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 rounded transition">+</button>
+</div>
+</div>
+<div class="border-t border-slate-700 pt-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="bg-[var(--midnight-900)] p-2 rounded text-slate-300">
+<span class="material-symbols-outlined text-xl">blur_on</span>
+</div>
+<div>
+<h3 class="font-medium">Blur Mode</h3>
+<p class="text-xs text-slate-400 mt-0.5">Blur journal text until hovered.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-[var(--gold-accent)] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[var(--gold-accent)]"></div>
+</label>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div class="space-y-8">
+<section class="bg-[var(--midnight-800)] p-6 rounded-lg border border-slate-700 shadow-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">lock</span>
+</div>
+<div class="flex items-center gap-3 mb-6 relative z-10">
+<span class="material-symbols-outlined text-[var(--gold-accent)]">database</span>
+<h2 class="text-xl font-semibold">Data &amp; Privacy</h2>
+</div>
+<div class="space-y-6 relative z-10">
+<div class="bg-[var(--midnight-900)] p-4 rounded border border-slate-700 mb-6">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-[var(--gold-accent)] mt-1">info</span>
+<p class="text-sm text-slate-300 leading-relaxed">
+                                        Your data is stored <strong>locally</strong> on this device. We do not have servers. To prevent data loss, please export a backup regularly.
+                                    </p>
+</div>
+</div>
+<div class="group">
+<h3 class="text-sm font-medium text-slate-300 mb-2">Backup Data (Export)</h3>
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-[var(--midnight-900)] border border-[var(--gold-accent)] text-[var(--starlight-50)] hover:bg-[var(--gold-accent)] hover:text-[var(--midnight-900)] transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.15)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">download</span>
+<div class="text-left">
+<span class="block font-medium">Download JSON Backup</span>
+<span class="block text-xs opacity-70">Includes entries, tracker, and settings</span>
+</div>
+</div>
+<span class="text-xs font-mono opacity-60">~24KB</span>
+</button>
+</div>
+<div>
+<h3 class="text-sm font-medium text-slate-300 mb-2">Restore Data (Import)</h3>
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-[var(--midnight-900)] border border-slate-600 text-slate-300 hover:border-slate-400 hover:text-white transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">upload</span>
+<div class="text-left">
+<span class="block font-medium">Import JSON File</span>
+<span class="block text-xs opacity-60">This will merge with existing data</span>
+</div>
+</div>
+</button>
+</div>
+<div class="pt-6 mt-2 border-t border-slate-700">
+<button class="text-[var(--crimson-ink)] text-sm hover:text-red-400 flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm">delete_forever</span>
+                                    Clear all data from this device
+                                </button>
+</div>
+</div>
+</section>
+<section class="bg-[var(--midnight-800)] p-6 rounded-lg border border-slate-700 shadow-lg text-center">
+<div class="w-16 h-16 mx-auto bg-[var(--midnight-900)] rounded-full flex items-center justify-center border border-slate-700 mb-4">
+<span class="material-symbols-outlined text-[var(--gold-accent)] text-2xl">menu_book</span>
+</div>
+<h3 class="text-lg font-serif mb-1">The Deen Journal</h3>
+<p class="text-xs text-slate-500 mb-4">Version 2.1.0 • Build 2023.10</p>
+<p class="text-sm text-slate-400 italic font-serif">"Indeed, in the remembrance of Allah do hearts find rest."</p>
+<div class="flex justify-center gap-4 mt-6">
+<a class="text-xs text-slate-500 hover:text-[var(--gold-accent)] transition" href="#">Changelog</a>
+<a class="text-xs text-slate-500 hover:text-[var(--gold-accent)] transition" href="#">Support</a>
+<a class="text-xs text-slate-500 hover:text-[var(--gold-accent)] transition" href="#">GitHub</a>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<nav class="w-20 bg-[var(--midnight-800)] border-l border-slate-700 flex flex-col items-center py-8 z-50 shadow-2xl h-full fixed right-0 top-0">
+<div class="mb-12">
+<div class="w-12 h-12 bg-[var(--midnight-900)] rounded-full border border-[var(--gold-accent)] flex items-center justify-center shadow-[0_0_10px_rgba(212,175,55,0.3)] cursor-pointer hover:scale-105 transition-transform">
+<span class="font-serif font-bold text-[var(--gold-accent)] text-xl">D</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-8 w-full">
+<a class="nav-item w-full h-14 flex items-center justify-center text-slate-400 hover:text-slate-100 transition-colors group relative" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">edit_square</span>
+<span class="absolute right-16 bg-slate-900 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-700">Journal</span>
+</a>
+<a class="nav-item w-full h-14 flex items-center justify-center text-slate-400 hover:text-slate-100 transition-colors group relative" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">grid_view</span>
+<span class="absolute right-16 bg-slate-900 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-700">Tracker</span>
+</a>
+<a class="nav-item w-full h-14 flex items-center justify-center text-slate-400 hover:text-slate-100 transition-colors group relative" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">menu_book</span>
+<span class="absolute right-16 bg-slate-900 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-700">Quran</span>
+</a>
+<a class="nav-item active w-full h-14 flex items-center justify-center transition-colors group relative" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">settings</span>
+<span class="absolute right-16 bg-slate-900 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-slate-700 text-[var(--gold-accent)]">Settings</span>
+</a>
+</div>
+<div class="mt-auto">
+<button class="w-10 h-10 rounded-full hover:bg-slate-700 flex items-center justify-center text-slate-400 transition-colors">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+</div>
+</nav>
+
+</body></html>

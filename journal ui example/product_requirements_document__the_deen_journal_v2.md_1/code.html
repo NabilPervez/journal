@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Deen Journal - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&amp;family=Inter:wght@300;400;500&amp;family=Amiri:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --midnight: #0F172A;
+            --starlight: #F8FAFC;
+            --gold: #D4AF37;
+            --parchment: #F5F5DC;
+            --gold-glow: rgba(212, 175, 55, 0.4);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--midnight);
+            color: var(--starlight);
+            overflow: hidden;}
+        h1, h2, h3, .cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .arabic-calligraphy {
+            font-family: 'Amiri', serif;
+        }.stars-bg {
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            opacity: 0.2;
+        }.gold-border {
+            position: relative;
+            background: linear-gradient(var(--midnight), var(--midnight)) padding-box,
+                        linear-gradient(45deg, transparent, var(--gold), transparent) border-box;
+            border: 1px solid transparent;
+        }@keyframes fadePulse {
+            0% { opacity: 0.8; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.02); text-shadow: 0 0 20px var(--gold-glow); }
+            100% { opacity: 0.8; transform: scale(0.98); }
+        }
+        .bismillah-animate {
+            animation: fadePulse 6s ease-in-out infinite;
+        }.btn-gold:hover {
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+    </style>
+</head>
+<body class="h-screen w-screen flex flex-col items-center justify-center relative bg-[var(--midnight)]">
+<div class="absolute inset-0 stars-bg z-0 pointer-events-none"></div>
+<div class="absolute inset-0 bg-radial-gradient from-transparent to-[var(--midnight)] z-0 pointer-events-none" style="background: radial-gradient(circle at center, transparent 0%, #0F172A 80%);"></div>
+<main class="relative z-10 flex flex-col items-center justify-center max-w-2xl w-full px-6 text-center space-y-12">
+<div class="space-y-6 flex flex-col items-center">
+<div class="bismillah-animate text-[var(--gold)] opacity-90 transition-all duration-1000 ease-in-out">
+<p class="arabic-calligraphy text-5xl md:text-7xl leading-relaxed drop-shadow-md select-none" dir="rtl">
+                    بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                </p>
+</div>
+<p class="text-slate-400 text-sm tracking-[0.3em] uppercase opacity-60">In the Name of Allah, the Entirely Merciful, the Especially Merciful</p>
+</div>
+<div class="w-full max-w-md bg-slate-900/50 backdrop-blur-sm rounded-xl p-[1px] shadow-2xl relative group">
+<div class="absolute inset-0 bg-gradient-to-b from-[var(--gold)]/20 via-transparent to-[var(--gold)]/20 rounded-xl pointer-events-none"></div>
+<div class="bg-[var(--midnight)] rounded-xl p-8 border border-slate-800 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent opacity-50"></div>
+<div class="flex flex-col items-center space-y-6">
+<div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border border-slate-700 shadow-inner">
+<span class="material-symbols-outlined text-[var(--gold)] text-2xl">security</span>
+</div>
+<h2 class="cinzel text-2xl font-semibold text-[var(--starlight)] tracking-wide">The Covenant</h2>
+<div class="space-y-4 text-center">
+<p class="text-slate-300 font-light leading-relaxed text-sm md:text-base">
+                            This journal is a sanctuary. 
+                        </p>
+<p class="text-[var(--starlight)] font-medium leading-relaxed border-l-2 border-[var(--gold)] pl-4 italic bg-slate-800/30 py-2 pr-2 rounded-r-lg">
+                            "This journal is private. Your data lives on this device. We cannot see your sins or your prayers."
+                        </p>
+<p class="text-slate-400 text-xs mt-2">
+                            Offline capable. Zero tracking. Your Digital Book of Deeds.
+                        </p>
+</div>
+<button class="btn-gold group relative w-full mt-4 py-3 px-6 bg-transparent border border-[var(--gold)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--midnight)] transition-all duration-300 rounded-lg overflow-hidden font-cinzel font-semibold tracking-wider uppercase text-sm">
+<span class="relative z-10 flex items-center justify-center gap-2">
+                            I Understand
+                            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">history_edu</span>
+</span>
+</button>
+</div>
+<svg class="absolute bottom-2 right-2 w-6 h-6 text-[var(--gold)] opacity-20 rotate-180" fill="currentColor" viewBox="0 0 24 24">
+<path d="M0 0h24v24H0z" fill="none"></path>
+<path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+</svg>
+<svg class="absolute top-2 left-2 w-6 h-6 text-[var(--gold)] opacity-20" fill="currentColor" viewBox="0 0 24 24">
+<path d="M0 0h24v24H0z" fill="none"></path>
+<path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
+</svg>
+</div>
+</div>
+<div class="absolute bottom-8 text-center space-y-2 opacity-30 hover:opacity-80 transition-opacity">
+<p class="cinzel text-xs tracking-widest text-[var(--gold)]">The Deen Journal</p>
+<p class="text-[10px] text-slate-500 font-inter">v2.1 • Privacy First • Local Storage</p>
+</div>
+</main>
+
+</body></html>

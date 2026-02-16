@@ -1,0 +1,40 @@
+{
+    "morning": [
+        "What is one intention for today?",
+        "How can you serve others today?",
+        "What attribute of Allah do you want to embody today?",
+        "How will you prioritize your prayers today?",
+        "Who needs your kindness today?",
+        "What is one thing you want to achieve for your akhirah today?",
+        "How can you improve your character today?",
+        "What are you grateful for this morning?",
+        "What is a sunnah you can revive today?",
+        "How can you protect your heart today?"
+    ],
+    "evening": [
+        "How did you see Allah's mercy today?",
+        "What is one thing you learned about yourself today?",
+        "Did you feel closer to Allah today?",
+        "What is a mistake you made, and how can you fix it?",
+        "How did you spend your free time today?",
+        "What are you grateful for tonight?",
+        "Who did you help today?",
+        "Did you control your anger today?",
+        "How was your focus in prayer today?",
+        "What do you want to ask forgiveness for?"
+    ],
+    "friday": [
+        "Reflect on Surah Kahf: Which story resonates with you today?",
+        "What special dua are you making during the hour of response?",
+        "How can you send more salawat on the Prophet (saw) today?",
+        "What is a good deed you can do secretly today?",
+        "How are you preparing for Jumu'ah?"
+    ],
+    "ramadan": [
+        "What hunger did you feel today mostly: food or spiritual?",
+        "How did the Quran speak to you today?",
+        "What is a bad habit you successfully avoided today?",
+        "What is your special dua for iftar?",
+        "How can you improve your tarawih/qiyam tonight?"
+    ]
+}

@@ -5,69 +5,10 @@
 **Goal:** Set up the project scaffold, design system, and local database foundation
 
 - [x] **1.1 Project Initialization**
-  - [x] Initialize Vite + React + TypeScript project with strict mode enabled
-  - [x] Configure TypeScript (`tsconfig.json`) with strict null checks and no implicit `any`
-  - [x] Install core dependencies:
-    - `react-router-dom`
-    - `tailwindcss`, `postcss`, `autoprefixer`, `@tailwindcss/typography`
-    - `framer-motion`
-    - `dexie`, `dexie-react-hooks`, `zod`
-    - `zustand`
-    - `lucide-react`
-    - `date-fns`, `hijri-date-converter`
-    - `react-textarea-autosize`, `file-saver`
-    - `vite-plugin-pwa`
-  - [x] Configure Tailwind with custom theme (Celestial Heritage colors from Section 3.1)
-  - [x] Set up Google Fonts: Cinzel/Libre Baskerville, Amiri, Inter/Lato
-
 - [x] **1.2 File Structure Setup**
-  - [x] Create folder structure per Section 10:
-    - `src/assets/` (textures, SVGs)
-    - `src/components/ui/` (Button, Modal, Input atoms)
-    - `src/components/journal/` (DailyPage, InkCanvas)
-    - `src/components/ibadah/` (PrayerRow, Grid)
-    - `src/components/layout/` (AppShell, NavigationRibbon)
-    - `src/data/` (quran.json, prompts.json - placeholder initially)
-    - `src/db/` (db.ts, schema.ts)
-    - `src/hooks/` (custom hooks)
-    - `src/services/` (backup.ts, analytics.ts)
-    - `src/styles/` (global.css)
-
 - [x] **1.3 Database Layer (Dexie.js)**
-  - [x] Create TypeScript interfaces in `db/schema.ts`:
-    - `JournalEntry` (per Section 5.2, lines 188-206)
-    - `IbadahLog` (per Section 5.2, lines 211-228)
-    - `UserSettings` (per Section 5.2, lines 233-243)
-  - [x] Initialize Dexie database in `db/db.ts`:
-    - Database name: `DeenJournal_Local_DB`
-    - Define tables: `entries`, `ibadah_log`, `user_settings`
-    - Set up proper indexing (`dateString` as primary key)
-  - [x] Test database initialization and basic CRUD operations
-
 - [x] **1.4 Theme System & Global Styles**
-  - [x] Create Tailwind theme configuration with colors:
-    - Midnight (`#0F172A`), Starlight (`#F8FAFC`), Burnished Gold (`#D4AF37`), Crimson (`#9F1239`), Parchment (`#F5F5DC`)
-  - [x] Create global CSS with:
-    - CSS-based lined paper effect (linear-gradient for journal lines)
-    - Custom scrollbar styling (minimal, elegant)
-    - Typography scale setup
-  - [x] Build `ThemeProvider` component using Zustand for dark/light/system mode
-  - [x] Implement CSS variables for dynamic theme switching
-
 - [x] **1.5 Routing & Layout Shell**
-  - [x] Set up React Router with routes:
-    - `/` → Journal (default)
-    - `/tracker` → Ibadah Tracker
-    - `/quran` → Quran/SOAP Study
-    - `/gratitude` → Gratitude Log
-    - `/settings` → Settings/Backup
-  - [x] Create `AppShell` layout component:
-    - Renders `NavigationRibbon`
-    - Handles route transitions with subtle animations
-  - [x] Build `NavigationRibbon` component (Section 4.1):
-    - Vertical bookmark tab (desktop) / bottom tab bar (mobile)
-    - Active/inactive states with gold accent
-    - Icons: Quill, Grid, Book, Lamp
 
 **Git Checkpoint:**
 ```bash
@@ -79,20 +20,20 @@ git push origin main
 ### PHASE 2: Services Layer & Data Management
 **Goal:** Build the service layer that mediates between UI and database
 
-- [ ] **2.1 Journal Service**
-  - [ ] Create `services/journalService.ts`:
+- [x] **2.1 Journal Service**
+  - [x] Create `services/journalService.ts`:
     - `saveEntry(dateString: string, content: string)` - Upsert entry with debounce
     - `getEntry(dateString: string)` - Retrieve specific entry
     - `getAllEntries()` - Get all entries for archive view
     - `searchEntries(query: string, tags?: string[])` - Full-text search
     - `sealEntry(dateString: string)` - Mark as read-only
     - `updateTags(dateString: string, tags: string[])` - Tag management
-  - [ ] Implement debounced save pipeline (2000ms) as per Section 7.1
-  - [ ] Add word count calculation logic
-  - [ ] Handle validation (minimum 10 words for sealing per Section 4.1)
+  - [x] Implement debounced save pipeline (2000ms) as per Section 7.1
+  - [x] Add word count calculation logic
+  - [x] Handle validation (minimum 10 words for sealing per Section 4.1)
 
-- [ ] **2.2 Tracker Service**
-  - [ ] Create `services/trackerService.ts`:
+- [x] **2.2 Tracker Service**
+  - [x] Create `services/trackerService.ts`:
     - `logPrayer(dateString: string, prayer: string, status: 0|1|2)` - 3-state toggle
     - `getTrackerData(dateString: string)` - Get single day
     - `getWeekData(startDate: string)` - 7-day range query
@@ -101,36 +42,36 @@ git push origin main
     - `logQuranPages(dateString: string, pages: number)`
     - `logFasting(dateString: string, type: 'ramadan'|'sunnah'|'makeup')`
 
-- [ ] **2.3 Backup & Restore Service**
-  - [ ] Create `services/backupService.ts`:
+- [x] **2.3 Backup & Restore Service**
+  - [x] Create `services/backupService.ts`:
     - `exportData()` - Query all data, create JSON blob with metadata/checksum (Section 7.2)
     - `importData(file: File)` - Parse and validate with Zod schemas
     - `validateBackupFile(data)` - Check version, structure integrity
     - `mergeStrategy(existing, incoming)` - Smart conflict resolution
     - `overwriteStrategy(incoming)` - Destructive replace
-  - [ ] Implement file download with `file-saver`
-  - [ ] Build conflict resolution modal component
-  - [ ] Add checksum validation for data integrity
+  - [x] Implement file download with `file-saver`
+  - [x] Build conflict resolution modal component
+  - [x] Add checksum validation for data integrity
 
-- [ ] **2.4 Static Data Integration**
-  - [ ] Create `data/prompts.json`:
+- [x] **2.4 Static Data Integration**
+  - [x] Create `data/prompts.json`:
     - Categories: morning, evening, friday, ramadan
     - Minimum 10 prompts per category
     - Implement deterministic shuffle algorithm based on date (Section 6.2)
-  - [ ] Source and prepare `data/quran.json`:
+  - [x] Source and prepare `data/quran.json`:
     - Structure: `{surah_number, ayah_number, text_ar, text_en, search_tokens}`
     - Set up lazy loading (only load when Quran tab is accessed)
     - Consider chunking by Surah if file is too large
 
-- [ ] **2.5 Utility Hooks**
-  - [ ] Create `hooks/useHijriDate.ts`:
+- [x] **2.5 Utility Hooks**
+  - [x] Create `hooks/useHijriDate.ts`:
     - Convert Gregorian to Hijri with user offset adjustment
     - Use `hijri-date-converter` for manual day offsets
-  - [ ] Create `hooks/useJournalEntry.ts`:
+  - [x] Create `hooks/useJournalEntry.ts`:
     - Wrapper for journalService with loading states
     - Auto-save on keystroke with debounce
     - Return save status ("Saving..." / "Saved" indicator)
-  - [ ] Create `hooks/useDebounce.ts`:
+  - [x] Create `hooks/useDebounce.ts`:
     - Generic debounce hook for text inputs
 
 **Git Checkpoint:**
